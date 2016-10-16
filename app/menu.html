@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" np-app="conFusion">
+<html lang="en" np-app="confusionApp">
 
 <head>
      <meta charset="utf-8">
@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head
          content must come *after* these tags -->
+
     <title>Ristorante Con Fusion: Menu</title>
         <!-- Bootstrap -->
+
+<!--build:css styles/main.css-->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/bootstrap-social.css" rel="stylesheet">
     <link href="styles/mystyles.css" rel="stylesheet">
+<!--endbuild-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,12 +30,12 @@
 <body>
 
 <div class="container">
-<div class="row row-content" ng-init = "dish {name:'Uthapizza', image: 'images/uthapizza.png', category: 'mains', label:'Hot', price:'4.99', description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.', comment: '' }">
+<div class="row row-content" ng-controller="menuController">
 	<div class="col-xs-12">
 		<div class="media">
 			<div class="media-left media-middle">
 				<a href="#">
-				<img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">
+				<img class="media-object img-thumbnail" ng-src=menuController.dish.image alt="Uthappizza">
 				</a>
 			</div>
 			<div class="media-body">
@@ -42,6 +46,7 @@
 			</div>
 			<div class="col-xs-12">
 				<div class="media">
+				. . .
 				<p>{{dish.description}}</p>
 				<p>Comment: {{dish.comment}}</p>
 				<p>Type your comment:
@@ -53,7 +58,13 @@
 	</div>
 </div>
 </div>
-<script src="../bower_components/angular/angular.min.js"></script>
+
 </body>
+
+<!--This BUILD TASK will provide optimization on client ie. instead of making repeated calls. only one call will provide all css / js-->
+<!--build:js scripts/main.js-->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="scripts/app.js"></script>
+<!--endbuild-->
 
 </html>
