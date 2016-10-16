@@ -76,6 +76,6 @@ gulp.task('browser-sync', ['default'], function () {
          index: "menu.html"
       }
    });
-        // Watch any files in dist/, reload on change
+// Watch any files in dist/, reload on change
   gulp.watch(['dist/**']).on('change', browserSync.reload);
     });
